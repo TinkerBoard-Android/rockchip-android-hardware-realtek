@@ -2,7 +2,7 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-BDROID_DIR := $(LOCAL_PATH)/../../bt
+BDROID_DIR := $(TOP_DIR)system/bt
 
 LOCAL_SRC_FILES := \
         src/bt_vendor_rtk.c \
@@ -15,8 +15,7 @@ LOCAL_C_INCLUDES += \
         $(BDROID_DIR)/hci/include
 
 LOCAL_SHARED_LIBRARIES := \
-        libcutils \
-        libhardware_legacy
+        libcutils
 
 LOCAL_MODULE := libbt-vendor_uart
 LOCAL_MODULE_TAGS := optional

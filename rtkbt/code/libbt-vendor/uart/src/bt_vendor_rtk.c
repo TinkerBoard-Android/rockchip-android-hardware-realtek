@@ -26,7 +26,7 @@
 
 #undef NDEBUG
 #define LOG_TAG "bt_vendor_uart"
-#define RTKBT_RELEASE_NAME "20170109_TV_ANDROID_7.x"
+#define RTKBT_RELEASE_NAME "20170908_BT_ANDROID_7.0"
 #include <utils/Log.h>
 #include "bt_vendor_rtk.h"
 #include "upio.h"
@@ -84,7 +84,7 @@ static const tUSERIAL_CFG userial_init_cfg =
 **
 *****************************************************************************/
 
-static int init(const bt_vendor_callbacks_t* p_cb, unsigned char *local_bdaddr)
+static int init(const bt_vendor_callbacks_t* p_cb, unsigned char *local_bdaddr,char *bt_device_node)
 {
     ALOGI("RTKBT_RELEASE_NAME: %s",RTKBT_RELEASE_NAME);
     ALOGI("init");
@@ -95,7 +95,7 @@ static int init(const bt_vendor_callbacks_t* p_cb, unsigned char *local_bdaddr)
         return -1;
     }
 
-    userial_vendor_init(BLUETOOTH_UART_DEVICE_PORT);
+    userial_vendor_init(bt_device_node);
     upio_init();
     ALOGE("bt_wake_up_host_mode_set(1)");
     bt_wake_up_host_mode_set(1);
@@ -116,7 +116,7 @@ static int op(bt_vendor_opcode_t opcode, void *param)
 {
     int retval = 0;
 
-    //BTVNDDBG("op for %d", opcode);
+    BTVNDDBG("op for %d", opcode);
 
     switch(opcode)
     {
@@ -125,9 +125,9 @@ static int op(bt_vendor_opcode_t opcode, void *param)
                 int *state = (int *) param;
                 if (*state == BT_VND_PWR_OFF)
                 {
-                   upio_set_bluetooth_power(UPIO_BT_POWER_OFF);
-                   usleep(200000);
-                   BTVNDDBG("set power off and delay 200ms");
+                    upio_set_bluetooth_power(UPIO_BT_POWER_OFF);
+                    usleep(200000);
+                    BTVNDDBG("set power off and delay 200ms");
 
                 }
                 else if (*state == BT_VND_PWR_ON)
