@@ -97,7 +97,7 @@ int getmacaddr(unsigned char * addr)
 
     char property[100] = {0};
 	// modify by rk start
-    if (property_get("persist.vendor.rtkbt.bdaddr_path", property, "default")) {
+    if (property_get("persist.vendor.rtkbt.bdaddr_path", property, "none")) {
         if(strcmp(property, "none") == 0) {
             return -1;
         }
