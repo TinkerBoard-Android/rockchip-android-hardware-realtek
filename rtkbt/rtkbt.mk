@@ -23,7 +23,10 @@ endif
 ifeq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), tablet)
 BT_FIRMWARE_FILES := $(shell ls $(CUR_PATH)/vendor/firmware)
 PRODUCT_COPY_FILES += \
-	$(foreach file, $(BT_FIRMWARE_FILES), $(CUR_PATH)/vendor/firmware/$(file):$(TARGET_COPY_OUT_VENDOR)/etc/firmware/$(file))
+    $(CUR_PATH)/vendor/firmware/rtl8822bu_config:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl8822bu_config \
+    $(CUR_PATH)/vendor/firmware/rtl8822bu_fw:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl8822bu_fw \
+    $(CUR_PATH)/vendor/firmware/rtl8822cu_config:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl8822cu_config \
+    $(CUR_PATH)/vendor/firmware/rtl8822cu_fw:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl8822cu_fw
 else
 BT_FIRMWARE_FILES := $(shell ls $(CUR_PATH)/vendor/firmware_box)
 PRODUCT_COPY_FILES += \
