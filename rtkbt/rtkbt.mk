@@ -9,6 +9,8 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/system/etc/bluetooth/rtkbt.conf:system/etc/bluetooth/rtkbt.conf \
 	$(LOCAL_PATH)/system/etc/firmware/rtl8723bs_config:system/etc/firmware/rtl8723bs_config \
 	$(LOCAL_PATH)/system/etc/firmware/rtl8723bs_fw:system/etc/firmware/rtl8723bs_fw \
+	$(LOCAL_PATH)/system/etc/firmware/rtl8723ds_config:system/etc/firmware/rtl8723ds_config \
+	$(LOCAL_PATH)/system/etc/firmware/rtl8723ds_fw:system/etc/firmware/rtl8723ds_fw \
 	$(LOCAL_PATH)/system/etc/permissions/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
 	$(LOCAL_PATH)/system/etc/permissions/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
 
