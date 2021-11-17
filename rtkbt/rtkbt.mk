@@ -22,11 +22,19 @@ endif
 
 ifeq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), tablet)
 BT_FIRMWARE_FILES := $(shell ls $(CUR_PATH)/vendor/firmware)
+ifeq ($(TARGET_BOARD_PLATFORM),rk3288)
+PRODUCT_COPY_FILES += \
+    $(CUR_PATH)/vendor/firmware/rtl8723bs_config:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl8723bs_config \
+    $(CUR_PATH)/vendor/firmware/rtl8723bs_fw:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl8723bs_fw \
+    $(CUR_PATH)/vendor/firmware/rtl8723ds_config:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl8723ds_config \
+    $(CUR_PATH)/vendor/firmware/rtl8723ds_fw:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl8723ds_fw
+else
 PRODUCT_COPY_FILES += \
     $(CUR_PATH)/vendor/firmware/rtl8822bu_config:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl8822bu_config \
     $(CUR_PATH)/vendor/firmware/rtl8822bu_fw:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl8822bu_fw \
     $(CUR_PATH)/vendor/firmware/rtl8822cu_config:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl8822cu_config \
     $(CUR_PATH)/vendor/firmware/rtl8822cu_fw:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/rtl8822cu_fw
+endif
 else
 BT_FIRMWARE_FILES := $(shell ls $(CUR_PATH)/vendor/firmware_box)
 PRODUCT_COPY_FILES += \
