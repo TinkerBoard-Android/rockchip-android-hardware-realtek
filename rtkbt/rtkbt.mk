@@ -48,7 +48,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.bluetooth.btsnoopenable=false \
-	persist.bluetooth.btsnooppath=/sdcard/btsnoop_hci.cfa \
 	persist.bluetooth.btsnoopsize=0xffff \
 	persist.bluetooth.rtkcoex=true \
 	bluetooth.enable_timeout_ms=11000
