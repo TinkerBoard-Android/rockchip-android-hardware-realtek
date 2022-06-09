@@ -5,17 +5,17 @@ CUR_PATH := hardware/realtek/rtkbt
 
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_RTK := true
-BOARD_HAVE_BLUETOOTH_RTK_TV := true
+BOARD_HAVE_BLUETOOTH_RTK_TV := false
 
-ifeq ($(BOARD_HAVE_BLUETOOTH_RTK_TV), true)
+#ifeq ($(BOARD_HAVE_BLUETOOTH_RTK_TV), true)
 #Firmware For Tv
-include $(CUR_PATH)/Firmware/TV/TV_Firmware.mk
-else
+#include $(CUR_PATH)/Firmware/TV/TV_Firmware.mk
+#else
 #Firmware For Tablet
-include $(CUR_PATH)/Firmware/BT/BT_Firmware.mk
-endif
+#include $(CUR_PATH)/Firmware/BT/BT_Firmware.mk
+#endif
 
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(CUR_PATH)/bluetooth
+#BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(CUR_PATH)/bluetooth
 
 PRODUCT_COPY_FILES += \
        $(CUR_PATH)/vendor/etc/bluetooth/rtkbt.conf:vendor/etc/bluetooth/rtkbt.conf \
@@ -27,6 +27,12 @@ PRODUCT_COPY_FILES += \
         $(CUR_PATH)/vendor/usr/keylayout/Vendor_005d_Product_0001.kl:vendor/usr/keylayout/Vendor_005d_Product_0001.kl \
         $(CUR_PATH)/vendor/usr/keylayout/Vendor_005d_Product_0002.kl:vendor/usr/keylayout/Vendor_005d_Product_0002.kl
 endif
+
+PRODUCT_COPY_FILES += \
+    $(CUR_PATH)/Firmware/BT/rtl8822b_config:$(TARGET_COPY_OUT_VENDOR)/firmware/rtl8822b_config \
+    $(CUR_PATH)/Firmware/BT/rtl8822b_fw:$(TARGET_COPY_OUT_VENDOR)/firmware/rtl8822b_fw \
+    $(CUR_PATH)/Firmware/BT/rtl8822c_config:$(TARGET_COPY_OUT_VENDOR)/firmware/rtl8822c_config \
+    $(CUR_PATH)/Firmware/BT/rtl8822c_fw:$(TARGET_COPY_OUT_VENDOR)/firmware/rtl8822c_fw
 
 # base bluetooth
 PRODUCT_PACKAGES += \
