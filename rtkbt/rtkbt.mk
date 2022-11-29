@@ -65,7 +65,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += persist.bluetooth.btsnooplogmode=disable \
                     persist.bluetooth.btsnooppath=/data/misc/bluedroid/btsnoop_hci.cfa \
-                    persist.bluetooth.btsnoopsize=0xffff \
+                    persist.bluetooth.btsnoopsize=0xfffff \
                     persist.bluetooth.showdeviceswithoutnames=false \
                     vendor.bluetooth.enable_timeout_ms=11000 \
                     vendor.realtek.bluetooth.en=false
